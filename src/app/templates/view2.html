@@ -1,0 +1,17 @@
+<div>
+    <button type="button" ng-click="goBack()">Go Back</button>
+<div>
+    <div>
+    <weaklist getweather="getWeather()"></weaklist>
+    </div>
+<p ng-if="apiCalled=='error'">{{error}}</p>
+</div>
+<div ng-if="apiCalled=='success'">
+<p>Temparature: {{weather.main.temp}}</p>
+<p>Wind Speed: {{weather.wind.speed}}</p>
+<p>Wind Angle: {{weather.wind.deg}}</p>
+<p>Weather Condition: {{weather.weather[0].description}}</p>
+<p>Temparature minimum: {{weather.main.temp_min}}</p>
+<p>Temparature maximum: {{weather.main.temp_max}}</p>
+</div>
+</div>
