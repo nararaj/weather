@@ -11,20 +11,21 @@ angular.module('myApp.view2', ['ngRoute'])
 
 .controller('View2Ctrl', function($scope,$location,weatherService) {
     $scope.weather = weatherService.getData();
+    $scope.getWeather = parseInt(new Date().getDay());
     if($scope.weather.cod != 200){
     $scope.apiCalled = 'error';
     $scope.error = $scope.weather.message;
     }else{
     $scope.apiCalled = 'success';
+        angular.forEach($scope.weather.list,function(elem,index){
+            var date = ((elem.dt_txt).substr(0,10)).split('-').join(',');
+            elem.dayconst = new Date(date).getDay();
+        })
     }
     $scope.goBack = function(){
         $location.path('/view1');
     }
-//    $scope.getWeather = function(i){
-//        var form = weatherService.returnform();
-//$scope.apiCalled =false;
-//weatherService.httpcall(form.cityName.$viewValue).then(function(response){
-//    $location.path('/view2');
-//});
-//}
+    $scope.$on('changweak',function(e,i){
+        $scope.getWeather = i;
+    })
 })

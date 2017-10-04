@@ -4,11 +4,12 @@ angular.module('myApp.directive', []).directive('weaklist', function (weaks) {
        scope : {
            getweather : '='
        },
-        template:'<div ng-repeat="i in weaks" style="display:inline" ng-click="thisDay(i)"><button class="btn btn-default" >{{i}}</button></div>',
+        template:'<div ng-repeat="i in weaks" ng-click="thisDay($index)"><button  style="width:100%;overflow:hidden" class="btn btn-default" >{{i}}</button></div>',
         link: function(scope,iElement,iAttribute) {
             scope.weaks = weaks;
             scope.thisDay = function(i){
-            getweather = i;
+                scope.$emit('changweak',i);
+//            getweather = i;
             }
     }
     };
