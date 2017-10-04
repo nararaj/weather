@@ -20,11 +20,11 @@ angular.module('myApp.view2', ['ngRoute'])
     $scope.goBack = function(){
         $location.path('/view1');
     }
-    $scope.getWeather = function(){
-        var form = weatherService.returnform();
-$scope.apiCalled =false;
-weatherService.httpcall(form.cityName.$viewValue).then(function(response){
-    $location.path('/view2');
-});
-}
+//    $scope.getWeather = function(i){
+//        var form = weatherService.returnform();
+//$scope.apiCalled =false;
+//weatherService.httpcall(form.cityName.$viewValue).then(function(response){
+//    $location.path('/view2');
+//});
+//}
 })

@@ -1,11 +1,12 @@
-<div>
-<p>Please enter your city name</p>
+<div class="container">
+<p style="padding:20px">Please enter your city name</p>
 <form novalidate name="cityForm" ng-submit="getWeather(cityForm)">
-<div>
-    City Name: <input type="text" ng-model="cityname" required="true" minlength="3" name='cityName'>
+<div class="form-group">
+    <label for="city">City Name: </label>
+    <input type="text" ng-model="cityname" required="true" minlength="3" name='cityName' id="city">
   </div>
   <div>
-  <button type="submit">Get Weather</button>
+  <button class="btn btn-default" type="submit">Get Weather</button>
   </div>
   </form>
 
